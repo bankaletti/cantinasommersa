@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cantina Sommersa | Cassiopea</title>
+    <style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+:root {
+    --primary-blue: #0A192F;
+    --ocean-blue: #172A45;
+    --accent-gold: #D4AF37;
+    --light-bg: #F4F6F9;
+    --text-dark: #333333;
+    --text-light: #FFFFFF;
+    --border-gray: #E2E8F0;
+    --success-green: #2ECC71;
+}
+
+body {
+    background-color: var(--light-bg);
+    color: var(--text-dark);
+    line-height: 1.6;
+    padding-top: 80px;
+}
+
+header {
+    background-color: var(--primary-blue);
+    padding: 20px 50px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: var(--text-light);
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-decoration: none;
+}
+
+.logo span { color: var(--accent-gold); }
+
+nav ul { display: flex; list-style: none; }
+nav ul li { margin-left: 30px; }
+nav ul li a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+nav ul li a:hover, nav ul li a.active { color: var(--accent-gold); }
+
+.page-hero {
+    background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.95)), 
+                url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+    color: var(--text-light);
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.page-hero h1 { font-size: 40px; letter-spacing: 3px; margin-bottom: 10px; text-transform: uppercase; }
+.page-hero p { font-size: 18px; max-width: 700px; margin: 0 auto; font-weight: 300; }
+
+.content-section { padding: 80px 50px; max-width: 1200px; margin: 0 auto; }
+
+.section-title {
+    font-size: 32px;
+    color: var(--primary-blue);
+    margin-bottom: 40px;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: var(--accent-gold);
+    margin: 10px 0 0 0;
+}
+
+footer {
+    background-color: var(--primary-blue);
+    color: rgba(255,255,255,0.6);
+    padding: 40px 50px;
+    text-align: center;
+    font-size: 14px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: 60px;
+}
+
+@media (max-width: 768px) {
+    header { padding: 20px; flex-direction: column; }
+    nav ul { margin-top: 15px; }
+    nav ul li { margin: 0 10px; }
+    .content-section { padding: 40px 20px; }
+}
+
+        .grid-2 { display: flex; gap: 40px; flex-wrap: wrap; margin-bottom: 60px; align-items: center; }
+        .grid-cell { flex: 1; min-width: 300px; }
+        
+        .science-box {
+            background-color: var(--ocean-blue);
+            color: var(--text-light);
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 60px;
+        }
+        .science-box h3 { color: var(--accent-gold); font-size: 24px; margin-bottom: 15px; }
+        .science-box ul { list-style-type: square; padding-left: 20px; }
+        .science-box li { margin-bottom: 10px; font-size: 15px; }
+
+        /* Catalog Grid */
+        .catalog-container { display: flex; flex-wrap: wrap; gap: 30px; }
+        .product-card {
+            background-color: var(--text-light);
+            border-radius: 8px;
+            border: 1px solid var(--border-gray);
+            overflow: hidden;
+            flex: 1;
+            min-width: 340px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .product-img {
+            height: 280px;
+            background-size: cover;
+            background-position: center;
+        }
+        .product-info { padding: 30px; }
+        .product-info h3 { color: var(--primary-blue); font-size: 22px; margin-bottom: 10px; }
+        .product-tag {
+            display: inline-block;
+            background-color: var(--primary-blue);
+            color: var(--accent-gold);
+            font-size: 12px;
+            padding: 4px 10px;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+        }
+        .product-info p { color: #555; font-size: 15px; margin-bottom: 20px; }
+        .price-box { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-gray); padding-top: 20px; }
+        .old-price { text-decoration: line-through; color: #999; font-size: 14px; }
+        .new-price { color: var(--primary-blue); font-size: 22px; font-weight: bold; }
+        .premium-badge { color: var(--success-green); font-size: 14px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">CASSIOPEA<span>.</span></a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cantina.html" class="active">Cantina Sommersa</a></li>
+                <li><a href="experience.html">Turismo Luxury</a></li>
+                <li><a href="investitori.html">Investitori</a></li>
+                <li><a href="chisiamo.html">Chi Siamo</a></li>
+                <li><a href="contatti.html">Contatti</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="page-hero" style="background-image: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.95)), url('https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1920&q=80');">
+        <h1>Cantina Sommersa Adriatico</h1>
+        <p>L'evoluzione perfetta dell'affinamento subacqueo a 18 metri di profondità.</p>
+    </div>
+
+    <main class="content-section">
+        <div class="grid-2">
+            <div class="grid-cell">
+                <h2 class="section-title">L'Infrastruttura sottomarina</h2>
+                <p style="color: #4A5568; margin-bottom: 20px; font-size: 16px;">
+                    Sfruttando la concessione demaniale del Consorzio di mitilicoltura partner a Termoli, Cassiopea ha creato la prima cantina subacquea dedicata dell'Adriatico centrale. Immergiamo una produzione iniziale di <strong>6.000 bottiglie di vino selezionato</strong> e <strong>3.000 bottiglie di Olio Extravergine di Oliva (EVO)</strong> d'alta gamma.
+                </p>
+                <p style="color: #4A5568; font-size: 16px;">
+                    Le bottiglie riposano protette all'interno di gabbie d'acciaio ancorate a strutture inerte di calcestruzzo. Questo metodo esclusivo garantisce un posizionamento premium sul mercato globale, incrementando il valore percepito del prodotto finale dal 60% fino al 100% rispetto all'affinamento standard a terra.
+                </p>
+            </div>
+            <div class="grid-cell" style="background: url('https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=600&q=80') center center/cover; height: 350px; border-radius: 8px;"></div>
+        </div>
+
+        <div class="science-box">
+            <h3>I Vantaggi Scientifici dell'Affinamento Subacqueo</h3>
+            <p style="margin-bottom: 20px; font-weight: 300;">Le particolari condizioni biologiche e fisiche riscontrabili a 18 metri di profondità agiscono positivamente sulla struttura molecolare del prodotto:</p>
+            <ul>
+                <li><strong>Temperatura Costante ed Isoterma:</strong> Il mare mitiga gli sbalzi termici stagionali tipici delle cantine di superficie.</li>
+                <li><strong>Assenza Totale di Luce e Raggi UV:</strong> Protezione assoluta dall'ossidazione precoce generata dalle radiazioni luminose.</li>
+                <li><strong>Pressione Idrostatica Costante:</strong> Superiore a quella atmosferica, favorisce una micro-ossigenazione dei tappi straordinariamente armonica.</li>
+                <li><strong>Culla delle Onde:</strong> Il continuo e delicatissimo movimento delle correnti sottomarine mantiene i sedimenti in sospensione, arricchendo lo spettro aromatico e la morbidezza del vino.</li>
+            </ul>
+        </div>
+
+        <h2 class="section-title">La Selezione Esclusiva Cassiopea</h2>
+        <div class="catalog-container">
+            
+            <!-- PRODOTTO 1 -->
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="product-info">
+                    <span class="product-tag">Vino Subacqueo Premium</span>
+                    <h3>Thalassa - Riserva Adriatica</h3>
+                    <p>Vino rosso strutturato autoctono, affinato 12 mesi a 18 metri sotto il livello del mare. Note sapide marcate, tannini setosi incomparabili ed evoluzione accelerata protetta.</p>
+                    <div class="price-box">
+                        <div>
+                            <span class="old-price">Terrestre: €35.00</span><br>
+                            <span class="new-price">€70.00</span>
+                        </div>
+                        <span class="premium-badge">+100% Value Gain</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODOTTO 2 -->
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="product-info">
+                    <span class="product-tag">Olio EVO Subacqueo</span>
+                    <h3>Aurum Maris - Olio Extravergine</h3>
+                    <p>Unicum mondiale. 3.000 bottiglie di olio extravergine di oliva da cultivar locali immerse in assenza di ossigeno e luce. Mantiene inalterati i polifenoli con un gusto rotondo straordinario.</p>
+                    <div class="price-box">
+                        <div>
+                            <span class="old-price">Terrestre: €25.00</span><br>
+                            <span class="new-price">€45.00</span>
+                        </div>
+                        <span class="premium-badge">+80% Value Gain</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Progetto Cassiopea - Cantina Sommersa Adriatico. Documento riservato e confidenziale.</p>
+    </footer>
+
+</body>
+</html>

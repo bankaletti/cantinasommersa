@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cassiopea | Cantina Sommersa, Luxury Tourism & Maricoltura</title>
+    <style>
+        /* --- RESET & FONT VARIABILI --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        :root {
+            --primary-blue: #0A192F;
+            --ocean-blue: #172A45;
+            --accent-gold: #D4AF37;
+            --light-bg: #F4F6F9;
+            --text-dark: #333333;
+            --text-light: #FFFFFF;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* --- NAVBAR --- */
+        header {
+            background-color: var(--primary-blue);
+            padding: 20px 50px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: var(--text-light);
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .logo span {
+            color: var(--accent-gold);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(10, 25, 47, 0.7), rgba(10, 25, 47, 0.85)), 
+                        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--text-light);
+            padding: 0 20px;
+            margin-top: 0;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .cta-btn {
+            background-color: var(--accent-gold);
+            color: var(--primary-blue);
+            padding: 15px 40px;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            background-color: #f1c40f;
+        }
+
+        /* --- SEZIONE VALORI (USP) --- */
+        .usp-section {
+            padding: 80px 50px;
+            background-color: var(--text-light);
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 36px;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-gold);
+            margin: 15px auto 0 auto;
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            max-width: 700px;
+            margin: 0 auto 50px auto;
+            color: #666;
+        }
+
+        /* --- THE THREE PILLARS (REVENUE STREAMS) --- */
+        .pillars-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .pillar-card {
+            background-color: var(--light-bg);
+            flex: 1;
+            min-width: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            text-align: left;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .pillar-img {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .pillar-content {
+            padding: 30px;
+        }
+
+        .pillar-content h3 {
+            font-size: 22px;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        .pillar-content p {
+            color: #555;
+            font-size: 14px;
+            margin-bottom: 20px;
+            height: 80px;
+        }
+
+        .pillar-link {
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        /* --- DETTAGLI COMPLEMENTARI --- */
+        .info-block {
+            background-color: var(--ocean-blue);
+            color: var(--text-light);
+            padding: 80px 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .info-box {
+            max-width: 900px;
+        }
+
+        .info-box h2 {
+            color: var(--accent-gold);
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--primary-blue);
+            color: rgba(255,255,255,0.6);
+            padding: 40px 50px;
+            text-align: center;
+            font-size: 14px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        footer a {
+            color: var(--accent-gold);
+            text-decoration: none;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            header { padding: 20px; flex-direction: column; }
+            nav ul { margin-top: 15px; }
+            nav ul li { margin: 0 10px; }
+            .hero h1 { font-size: 32px; }
+            .hero p { font-size: 16px; }
+            .pillars-container { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">CASSIOPEA<span>.</span></div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#progetto">Il Progetto</a></li>
+                <li><a href="#cantina">Cantina Sommersa</a></li>
+                <li><a href="#turismo">Turismo Luxury</a></li>
+                <li><a href="#mitilicoltura">Maricoltura</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Cantina Sommersa & Turismo Esperienziale Luxury</h1>
+        <p>L'unico ecosistema al mondo che unisce l'eccellenza dell'affinamento subacqueo, la sostenibilità della maricoltura attiva e l'esclusività del turismo nautico nel cuore dell'Adriatico.</p>
+        <a href="#progetto" class="cta-btn">Scopri l'Opportunità</a>
+    </section>
+
+    <section id="progetto" class="usp-section">
+        <h2 class="section-title">Un Modello di Business Integrato</h2>
+        <p class="section-subtitle">Cassiopea ridefinisce gli standard dell'enogastronomia premium italiana a Termoli e alle Isole Tremiti, attraverso tre pilastri aziendali sinergici ad alta marginalità.</p>
+        
+        <div class="pillars-container">
+            
+            <div class="pillar-card" id="cantina">
+                <div class="pillar-img" style="background-image: url('https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="pillar-content">
+                    <h3>Cantina Sommersa</h3>
+                    <p>Prima cantina di affinamento subacqueo dell'Adriatico centrale. 6.000 bottiglie di vino e 3.000 di olio EVO immerse a 18 metri di profondità per ottenere proprietà organolettiche uniche.</p>
+                    <a href="#" class="pillar-link">Esplora i Prodotti &rarr;</a>
+                </div>
+            </div>
+
+            <div class="pillar-card" id="turismo">
+                <div class="pillar-img" style="background-image: url('https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="pillar-content">
+                    <h3>Turismo Luxury</h3>
+                    <p>Escursioni esclusive a bordo di un motoryacht da 18 metri per un massimo di 12 ospiti. Integrazione di tasting comparativi a bordo, cucina gourmet con chef privato e tour delle Isole Tremiti.</p>
+                    <a href="#" class="pillar-link">Prenota l'Esperienza &rarr;</a>
+                </div>
+            </div>
+
+            <div class="pillar-card" id="mitilicoltura">
+                <div class="pillar-img" style="background-image: url('https://images.unsplash.com/photo-1551248429-4043babc4347?auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="pillar-content">
+                    <h3>Base Business Mitilicoltura</h3>
+                    <p>Una solida infrastruttura produttiva consolidata da 1.800 tonnellate l'anno che assicura stabilità di cash flow e funge da incubatore perfetto per le innovazioni sottomarine.</p>
+                    <a href="#" class="pillar-link">La Nostra Produzione &rarr;</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="info-block">
+        <div class="info-box">
+            <h2>Sostenibilità d'Avanguardia ed Effetto Reef</h2>
+            <p>Il nostro approccio non si limita a preservare l'ambiente: lo rigenera. Le nostre strutture di contenimento sottomarino in calcestruzzo inerte si trasformano in veri e propri reef artificiali, incrementando attivamente la biodiversità marina dell'Adriatico. Il progetto opera in totale trasparenza e in conformità con i più rigorosi standard ESG.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Progetto Cassiopea - Cantina Sommersa Adriatico. Documento riservato e confidenziale.</p>
+        <p style="margin-top: 10px; font-size: 12px;">Termoli (CB), Italia | In collaborazione con il Dipartimento di Scienze Marine.</p>
+    </footer>
+
+</body>
+</html>

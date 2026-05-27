@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turismo Luxury Esperienziale | Cassiopea</title>
+    <style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+:root {
+    --primary-blue: #0A192F;
+    --ocean-blue: #172A45;
+    --accent-gold: #D4AF37;
+    --light-bg: #F4F6F9;
+    --text-dark: #333333;
+    --text-light: #FFFFFF;
+    --border-gray: #E2E8F0;
+    --success-green: #2ECC71;
+}
+
+body {
+    background-color: var(--light-bg);
+    color: var(--text-dark);
+    line-height: 1.6;
+    padding-top: 80px;
+}
+
+header {
+    background-color: var(--primary-blue);
+    padding: 20px 50px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: var(--text-light);
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-decoration: none;
+}
+
+.logo span { color: var(--accent-gold); }
+
+nav ul { display: flex; list-style: none; }
+nav ul li { margin-left: 30px; }
+nav ul li a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+nav ul li a:hover, nav ul li a.active { color: var(--accent-gold); }
+
+.page-hero {
+    background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.95)), 
+                url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+    color: var(--text-light);
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.page-hero h1 { font-size: 40px; letter-spacing: 3px; margin-bottom: 10px; text-transform: uppercase; }
+.page-hero p { font-size: 18px; max-width: 700px; margin: 0 auto; font-weight: 300; }
+
+.content-section { padding: 80px 50px; max-width: 1200px; margin: 0 auto; }
+
+.section-title {
+    font-size: 32px;
+    color: var(--primary-blue);
+    margin-bottom: 40px;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: var(--accent-gold);
+    margin: 10px 0 0 0;
+}
+
+footer {
+    background-color: var(--primary-blue);
+    color: rgba(255,255,255,0.6);
+    padding: 40px 50px;
+    text-align: center;
+    font-size: 14px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: 60px;
+}
+
+@media (max-width: 768px) {
+    header { padding: 20px; flex-direction: column; }
+    nav ul { margin-top: 15px; }
+    nav ul li { margin: 0 10px; }
+    .content-section { padding: 40px 20px; }
+}
+
+        .grid-3 { display: flex; gap: 30px; flex-wrap: wrap; margin-bottom: 40px; }
+        .pricing-card {
+            background-color: var(--text-light);
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            padding: 30px;
+            flex: 1;
+            min-width: 260px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .pricing-card h3 { color: var(--primary-blue); font-size: 20px; margin-bottom: 10px; text-transform: uppercase; }
+        .price-badge { font-size: 32px; color: var(--accent-gold); font-weight: bold; margin: 15px 0; }
+        .pricing-card ul { list-style: none; padding: 0; text-align: left; color: #555; font-size: 14px; margin-bottom: 20px; }
+        .pricing-card li { margin-bottom: 8px; border-bottom: 1px solid var(--border-gray); padding-bottom: 4px; }
+        
+        .itinerary-timeline {
+            background-color: var(--ocean-blue);
+            color: var(--text-light);
+            padding: 40px;
+            border-radius: 8px;
+            margin-top: 60px;
+        }
+        .itinerary-timeline h3 { color: var(--accent-gold); font-size: 24px; margin-bottom: 25px; text-transform: uppercase; }
+        .step { margin-bottom: 20px; border-left: 3px solid var(--accent-gold); padding-left: 20px; }
+        .step strong { color: var(--accent-gold); display: block; font-size: 16px; margin-bottom: 3px; }
+        
+        .booking-box {
+            background-color: var(--text-light);
+            border: 1px solid var(--border-gray);
+            padding: 40px;
+            border-radius: 8px;
+            margin-top: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">CASSIOPEA<span>.</span></a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cantina.html">Cantina Sommersa</a></li>
+                <li><a href="experience.html" class="active">Turismo Luxury</a></li>
+                <li><a href="investitori.html">Investitori</a></li>
+                <li><a href="chisiamo.html">Chi Siamo</a></li>
+                <li><a href="contatti.html">Contatti</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="page-hero" style="background-image: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.95)), url('https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=1920&q=80');">
+        <h1>Turismo Nautico Esperienziale d'Élite</h1>
+        <p>Escursioni esclusive sul nostro yacht da 18 metri tra Termoli e le splendide Isole Tremiti.</p>
+    </div>
+
+    <main class="content-section">
+        <h2 class="section-title">L'Esperienza Esclusiva a Bordo</h2>
+        <p style="color: #4A5568; font-size: 16px; max-width: 900px; margin-bottom: 50px;">
+            Cassiopea offre un servizio turistico premium strutturato su una pianificazione di <strong>122 giornate operative annue</strong> (da Aprile a Ottobre). Con un tasso di occupazione stimato a budget del 79%, accogliamo fino a 12 ospiti a escursione per garantire un'atmosfera intima, un servizio personalizzato e la massima eccellenza. 
+        </p>
+
+        <!-- STRATEGIA PRICING DINAMICO -->
+        <h2 class="section-title">Tariffe e Soluzioni Premium</h2>
+        <div class="grid-3">
+            <div class="pricing-card">
+                <h3>Early Bird</h3>
+                <div class="price-badge">€200 <span style="font-size:14px; font-weight:normal;">/ pax</span></div>
+                <ul>
+                    <li>Prenotazioni > 60 giorni prima</li>
+                    <li>Tour completo Termoli-Tremiti</li>
+                    <li>Tasting comparativo di vini</li>
+                    <li>Pranzo leggero a base di pesce</li>
+                </ul>
+            </div>
+            
+            <div class="pricing-card" style="border: 2px solid var(--accent-gold); transform: scale(1.03);">
+                <span style="background: var(--accent-gold); color: var(--primary-blue); font-size:11px; font-weight:bold; padding:2px 10px; text-transform:uppercase; border-radius:4px;">Più Richiesto</span>
+                <h3 style="margin-top:10px;">Standard / High Season</h3>
+                <div class="price-badge">€220 - €250 <span style="font-size:14px; font-weight:normal;">/ pax</span></div>
+                <ul>
+                    <li>Tariffa flessibile e di alta stagione</li>
+                    <li>Integrazione menù fine-dining</li>
+                    <li>Chef privato a bordo</li>
+                    <li>Tour guidato dei reef sottomarini</li>
+                </ul>
+            </div>
+
+            <div class="pricing-card">
+                <h3>Private Charter</h3>
+                <div class="price-badge">€2.600 <span style="font-size:14px; font-weight:normal;">/ giorno</span></div>
+                <ul>
+                    <li>Yacht in esclusiva assoluta (max 12 pax)</li>
+                    <li>Itinerario e tappe su misura</li>
+                    <li>Selezione di bottiglie Magnum incluse</li>
+                    <li>Servizio VIP personalizzato</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- TIMELINE ITINERARIO -->
+        <div class="itinerary-timeline">
+            <h3>Programma Tipico della Giornata</h3>
+            <div class="step">
+                <strong>Ore 09:00 - Imbarco ed Accoglienza</strong>
+                <p>Partenza dal Marina del Porto Turistico di Termoli a bordo del motoryacht Cassiopea. Welcome drink con bollicine e briefing.</p>
+            </div>
+            <div class="step">
+                <strong>Ore 10:30 - Tappa alla Cantina Sommersa & Reef Artificiali</strong>
+                <p>Sosta tecnica sopra la nostra concessione marina. Spiegazione dei sistemi di affinamento subacqueo con sessione di snorkeling guidato per osservare la ricca biodiversità marina creata dall'effetto reef delle gabbie.</p>
+            </div>
+            <div class="step">
+                <strong>Ore 12:30 - Tasting Comparativo e Fine-Dining</strong>
+                <p>Pranzo gourmet curato dal nostro chef a base di pesce locale e mitili certificati del Consorzio. Degustazione comparativa esclusiva tra una bottiglia di vino affinata a terra e una estratta dai fondali marini.</p>
+            </div>
+            <div class="step">
+                <strong>Ore 15:00 - Esplorazione delle Isole Tremiti</strong>
+                <p>Sosta all'Isola di San Domino e Caprara, bagni nelle calette incontaminate e tempo libero a terra.</p>
+            </div>
+            <div class="step">
+                <strong>Ore 18:30 - Rientro al Tramonto</strong>
+                <p>Navigazione di rientro verso il porto di Termoli avvolti dalle luci del tramonto adriatico.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Progetto Cassiopea - Cantina Sommersa Adriatico. Documento riservato e confidenziale.</p>
+    </footer>
+
+</body>
+</html>
