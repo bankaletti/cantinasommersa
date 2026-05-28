@@ -1,335 +1,63 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contatti | Cassiopea</title>
-    <style>
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
-:root {
-    --primary-blue: #0A192F;
-    --ocean-blue: #172A45;
-    --accent-gold: #D4AF37;
-    --light-bg: #F4F6F9;
-    --text-dark: #333333;
-    --text-light: #FFFFFF;
-    --border-gray: #E2E8F0;
-}
-
-body {
-    background-color: var(--light-bg);
-    color: var(--text-dark);
-    line-height: 1.6;
-    padding-top: 80px;
-}
-
-header {
-    background-color: var(--primary-blue);
-    padding: 20px 50px;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    color: var(--text-light);
-    font-size: 24px;
-    font-weight: bold;
-    letter-spacing: 3px;
-    text-decoration: none;
-}
-
-.logo span {
-    color: var(--accent-gold);
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-}
-
-nav ul li {
-    margin-left: 30px;
-}
-
-nav ul li a {
-    color: var(--text-light);
-    text-decoration: none;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: color 0.3s;
-}
-
-nav ul li a:hover, nav ul li a.active {
-    color: var(--accent-gold);
-}
-
-.page-hero {
-    background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.95)), 
-                url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
-    color: var(--text-light);
-    text-align: center;
-    padding: 60px 20px;
-}
-
-.page-hero h1 {
-    font-size: 40px;
-    letter-spacing: 3px;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-}
-
-.page-hero p {
-    font-size: 18px;
-    max-width: 700px;
-    margin: 0 auto;
-    font-weight: 300;
-}
-
-.content-section {
-    padding: 80px 50px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.section-title {
-    font-size: 32px;
-    color: var(--primary-blue);
-    margin-bottom: 40px;
-    position: relative;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.section-title::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 3px;
-    background-color: var(--accent-gold);
-    margin: 10px 0 0 0;
-}
-
-footer {
-    background-color: var(--primary-blue);
-    color: rgba(255,255,255,0.6);
-    padding: 40px 50px;
-    text-align: center;
-    font-size: 14px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    margin-top: 60px;
-}
-
-        .contact-grid {
-            display: table;
-            width: 100%;
-        }
-        
-        .contact-row {
-            display: table-row;
-        }
-        
-        .contact-cell {
-            display: table-cell;
-            width: 50%;
-            vertical-align: top;
-            padding: 20px;
-        }
-        
-        .info-card {
-            background-color: var(--text-light);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border: 1px solid var(--border-gray);
-            margin-bottom: 25px;
-        }
-        
-        .info-card h3 {
-            color: var(--primary-blue);
-            margin-bottom: 15px;
-            font-size: 18px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-bottom: 2px solid var(--accent-gold);
-            padding-bottom: 5px;
-            display: inline-block;
-        }
-        
-        .info-card p {
-            color: #555;
-            margin-bottom: 10px;
-            font-size: 15px;
-        }
-        
-        .contact-form {
-            background-color: var(--text-light);
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border: 1px solid var(--border-gray);
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: var(--primary-blue);
-            font-weight: bold;
-            font-size: 14px;
-        }
-        
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #CBD5E1;
-            border-radius: 4px;
-            font-size: 15px;
-            color: var(--text-dark);
-        }
-        
-        .form-group input:focus, .form-group textarea:focus {
-            outline: none;
-            border-color: var(--ocean-blue);
-            box-shadow: 0 0 0 3px rgba(23, 42, 69, 0.1);
-        }
-        
-        .submit-btn {
-            background-color: var(--primary-blue);
-            color: var(--text-light);
-            border: none;
-            padding: 14px 30px;
-            font-size: 14px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-radius: 4px;
-            cursor: pointer;
-            width: 100%;
-            transition: background-color 0.3s;
-        }
-        
-        .submit-btn:hover {
-            background-color: var(--ocean-blue);
-        }
-        
-        @media (max-width: 768px) {
-            header { padding: 20px; flex-direction: column; }
-            nav ul { margin-top: 15px; }
-            nav ul li { margin: 0 10px; }
-            .content-section { padding: 40px 20px; }
-            .contact-grid, .contact-row, .contact-cell { display: block; width: 100%; }
-            .contact-form { margin-top: 30px; padding: 25px; }
-        }
-    </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Contatti — Cassiopea</title>
+<meta name="description" content="Investitori, distributori premium, ospiti privati. Scriveteci per il dossier completo." />
+<meta property="og:title" content="Contatti — Cassiopea" />
+<meta property="og:description" content="Investitori, distributori premium, ospiti privati. Scriveteci per il dossier completo." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-
-    <!-- NAVBAR -->
-    <header>
-        <a href="index.html" class="logo">CASSIOPEA<span>.</span></a>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="chisiamo.html">Chi Siamo</a></li>
-                <li><a href="contatti.html" class="active">Contatti</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- HERO -->
-    <div class="page-hero">
-        <h1>Contatta Cassiopea</h1>
-        <p>Siamo a disposizione di investitori, distributori e clienti luxury per informazioni e dettagli operativi.</p>
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand"><span class="text-gold"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2l1.8 7.2L21 11l-7.2 1.8L12 20l-1.8-7.2L3 11l7.2-1.8z"/></svg></span><span class="brand-name">Cassiopea</span></a>
+    <div class="nav-links">
+      <a href="cantina.html">Cantina</a>
+      <a href="esperienza.html">Esperienza</a>
+      <a href="mare.html">Mare</a>
+      <a href="progetto.html">Progetto</a>
+      <a href="contatti.html" style="color:var(--gold)">Contatti</a>
     </div>
-
-    <!-- MAIN CONTENT -->
-    <main class="content-section">
-        
-        <div class="contact-grid">
-            <div class="contact-row">
-                
-                <!-- LEFT COLUMN: INFO -->
-                <div class="contact-cell">
-                    <h2 class="section-title">I Nostri Riferimenti</h2>
-                    
-                    <div class="info-card">
-                        <h3>Sede Operativa</h3>
-                        <p><strong>Indirizzo:</strong> Area Porto Turistico, 86039 Termoli (CB), Italia</p>
-                        <p><strong>Uffici:</strong> Consorzio Mitilicoltura & Project Management Cassiopea</p>
-                    </div>
-                    
-                    <div class="info-card">
-                        <h3>Canali Diretti</h3>
-                        <p><strong>Email Relazioni Investitori:</strong> investor.relations@cassiopea-adriatico.it</p>
-                        <p><strong>Email Booking & Tour:</strong> experiences@cassiopea-adriatico.it</p>
-                        <p><strong>Telefono Direzione:</strong> +39 0875 555XXX</p>
-                    </div>
-                    
-                    <div class="info-card">
-                        <h3>Stagionalità & Orari</h3>
-                        <p><strong>Base Business Mitilicoltura:</strong> Operativo tutto l'anno (Picco commerciale: Marzo - Agosto)</p>
-                        <p><strong>Turismo Esperienziale:</strong> Attivo da Aprile a Ottobre (7 mesi di navigazione pianificata)</p>
-                    </div>
-                </div>
-                
-                <!-- RIGHT COLUMN: FORM -->
-                <div class="contact-cell">
-                    <div class="contact-form">
-                        <h2 style="color: var(--primary-blue); font-size: 24px; margin-bottom: 25px; text-transform: uppercase;">Invia un messaggio</h2>
-                        <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Messaggio inviato con successo (Simulazione)');">
-                            
-                            <div class="form-group">
-                                <label for="name">Nome / Azienda</label>
-                                <input type="text" id="name" required placeholder="Inserisci il tuo nome o la tua società">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="email">Indirizzo Email</label>
-                                <input type="email" id="email" required placeholder="esempio@dominio.it">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="subject">Oggetto dell'interesse</label>
-                                <input type="text" id="subject" required placeholder="es. Opportunità Investimento / Distribuzione B2B / Prenotazione Yacht">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="message">Messaggio</label>
-                                <textarea id="message" rows="5" required placeholder="Scrivi qui la tua richiesta dettagliata..."></textarea>
-                            </div>
-                            
-                            <button type="submit" class="submit-btn">Invia Richiesta</button>
-                        </form>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer>
-        <p>&copy; 2026 Progetto Cassiopea - Cantina Sommersa Adriatico. Documento riservato e confidenziale.</p>
-    </footer>
-
-</body>
-</html>
+    <a href="contatti.html" class="cta">Prenota</a>
+  </div>
+</nav>
+<section class="page-header">
+  <div class="container">
+    <div class="eyebrow">Contatti</div>
+    <h1 class="display" style="font-size:clamp(2.75rem,7vw,6rem)">Per pochi. <em>Per sempre.</em></h1>
+  </div>
+</section>
+<section id="contatti">
+  <div class="container" style="max-width:64rem;text-align:center">
+    <div class="center-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2l1.8 7.2L21 11l-7.2 1.8L12 20l-1.8-7.2L3 11l7.2-1.8z"/></svg></div>
+    <h2 class="display">Per pochi.<br><em>Per sempre.</em></h2>
+    <p style="margin-top:2rem;color:var(--muted);max-width:32rem;margin-left:auto;margin-right:auto">
+      Investitori istituzionali, distributori premium, ospiti privati. Scriveteci per ricevere il dossier completo o per riservare la prossima navigazione.
+    </p>
+    <form class="contact-form" onsubmit="event.preventDefault();alert('Grazie. Vi ricontatteremo a breve.')">
+      <input type="email" required placeholder="La vostra email" />
+      <button type="submit" class="btn btn-gold">Richiedi accesso</button>
+    </form>
+    <div class="contact-info">
+      <div><div class="label">Sede</div>Porto di Termoli, Molise</div>
+      <div><div class="label">Email</div>ospiti@cassiopea-adriatico.it</div>
+      <div><div class="label">Stagione</div>Aprile — Ottobre</div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="container footer-inner">
+    <div class="brand">
+      <span class="text-gold"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2l1.8 7.2L21 11l-7.2 1.8L12 20l-1.8-7.2L3 11l7.2-1.8z"/></svg></span>
+      <span class="brand-name" style="font-size:1.125rem">Cassiopea</span>
+      <span style="opacity:.6">— Adriatico, MMXXVI</span>
+    </div>
+    <div class="tracking-luxury uppercase">Friend of the Sea · Dolphin Safe</div>
+  </div>
+</footer>
+</body></html>

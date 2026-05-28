@@ -1,329 +1,164 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cassiopea | Cantina Sommersa, Luxury Tourism & Maricoltura</title>
-    <style>
-        /* --- RESET & FONT VARIABILI --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        }
-
-        :root {
-            --primary-blue: #0A192F;
-            --ocean-blue: #172A45;
-            --accent-gold: #D4AF37;
-            --light-bg: #F4F6F9;
-            --text-dark: #333333;
-            --text-light: #FFFFFF;
-        }
-
-        body {
-            background-color: var(--light-bg);
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
-
-        /* --- NAVBAR --- */
-        header {
-            background-color: var(--primary-blue);
-            padding: 20px 50px;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            color: var(--text-light);
-            font-size: 24px;
-            font-weight: bold;
-            letter-spacing: 3px;
-        }
-
-        .logo span {
-            color: var(--accent-gold);
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 30px;
-        }
-
-        nav ul li a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: var(--accent-gold);
-        }
-
-        /* --- HERO SECTION --- */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(10, 25, 47, 0.7), rgba(10, 25, 47, 0.85)), 
-                        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: var(--text-light);
-            padding: 0 20px;
-            margin-top: 0;
-        }
-
-        .hero h1 {
-            font-size: 50px;
-            letter-spacing: 4px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
-
-        .hero p {
-            font-size: 20px;
-            max-width: 800px;
-            margin-bottom: 40px;
-            font-weight: 300;
-        }
-
-        .cta-btn {
-            background-color: var(--accent-gold);
-            color: var(--primary-blue);
-            padding: 15px 40px;
-            text-decoration: none;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-radius: 4px;
-            transition: transform 0.3s, background-color 0.3s;
-        }
-
-        .cta-btn:hover {
-            transform: translateY(-3px);
-            background-color: #f1c40f;
-        }
-
-        /* --- SEZIONE VALORI (USP) --- */
-        .usp-section {
-            padding: 80px 50px;
-            background-color: var(--text-light);
-            text-align: center;
-        }
-
-        .section-title {
-            font-size: 36px;
-            color: var(--primary-blue);
-            margin-bottom: 20px;
-            position: relative;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background-color: var(--accent-gold);
-            margin: 15px auto 0 auto;
-        }
-
-        .section-subtitle {
-            font-size: 16px;
-            max-width: 700px;
-            margin: 0 auto 50px auto;
-            color: #666;
-        }
-
-        /* --- THE THREE PILLARS (REVENUE STREAMS) --- */
-        .pillars-container {
-            display: flex;
-            justify-content: space-between;
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-            flex-wrap: wrap;
-        }
-
-        .pillar-card {
-            background-color: var(--light-bg);
-            flex: 1;
-            min-width: 300px;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-            text-align: left;
-        }
-
-        .pillar-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .pillar-img {
-            height: 220px;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .pillar-content {
-            padding: 30px;
-        }
-
-        .pillar-content h3 {
-            font-size: 22px;
-            color: var(--primary-blue);
-            margin-bottom: 15px;
-        }
-
-        .pillar-content p {
-            color: #555;
-            font-size: 14px;
-            margin-bottom: 20px;
-            height: 80px;
-        }
-
-        .pillar-link {
-            color: var(--accent-gold);
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 14px;
-            text-transform: uppercase;
-        }
-
-        /* --- DETTAGLI COMPLEMENTARI --- */
-        .info-block {
-            background-color: var(--ocean-blue);
-            color: var(--text-light);
-            padding: 80px 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        .info-box {
-            max-width: 900px;
-        }
-
-        .info-box h2 {
-            color: var(--accent-gold);
-            font-size: 32px;
-            margin-bottom: 20px;
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            background-color: var(--primary-blue);
-            color: rgba(255,255,255,0.6);
-            padding: 40px 50px;
-            text-align: center;
-            font-size: 14px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-
-        footer a {
-            color: var(--accent-gold);
-            text-decoration: none;
-        }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 768px) {
-            header { padding: 20px; flex-direction: column; }
-            nav ul { margin-top: 15px; }
-            nav ul li { margin: 0 10px; }
-            .hero h1 { font-size: 32px; }
-            .hero p { font-size: 16px; }
-            .pillars-container { flex-direction: column; }
-        }
-    </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Cassiopea — Cantina Sommersa dell'Adriatico</title>
+<meta name="description" content="Cantina sommersa, maricoltura sostenibile e turismo esperienziale luxury a Termoli. Vini e oli affinati a 18 metri di profondità nell'Adriatico." />
+<meta property="og:title" content="Cassiopea — Cantina Sommersa dell'Adriatico" />
+<meta property="og:description" content="Cantina sommersa, maricoltura sostenibile e turismo esperienziale luxury a Termoli. Vini e oli affinati a 18 metri di profondità nell'Adriatico." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-
-    <header>
-        <div class="logo">CASSIOPEA<span>.</span></div>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#progetto">Il Progetto</a></li>
-                <li><a href="#cantina">Cantina Sommersa</a></li>
-                <li><a href="#turismo">Turismo Luxury</a></li>
-                <li><a href="#mitilicoltura">Maricoltura</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section class="hero">
-        <h1>Cantina Sommersa & Turismo Esperienziale Luxury</h1>
-        <p>L'unico ecosistema al mondo che unisce l'eccellenza dell'affinamento subacqueo, la sostenibilità della maricoltura attiva e l'esclusività del turismo nautico nel cuore dell'Adriatico.</p>
-        <a href="#progetto" class="cta-btn">Scopri l'Opportunità</a>
-    </section>
-
-    <section id="progetto" class="usp-section">
-        <h2 class="section-title">Un Modello di Business Integrato</h2>
-        <p class="section-subtitle">Cassiopea ridefinisce gli standard dell'enogastronomia premium italiana a Termoli e alle Isole Tremiti, attraverso tre pilastri aziendali sinergici ad alta marginalità.</p>
-        
-        <div class="pillars-container">
-            
-            <div class="pillar-card" id="cantina">
-                <div class="pillar-img" style="background-image: url('https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=600&q=80');"></div>
-                <div class="pillar-content">
-                    <h3>Cantina Sommersa</h3>
-                    <p>Prima cantina di affinamento subacqueo dell'Adriatico centrale. 6.000 bottiglie di vino e 3.000 di olio EVO immerse a 18 metri di profondità per ottenere proprietà organolettiche uniche.</p>
-                    <a href="#" class="pillar-link">Esplora i Prodotti &rarr;</a>
-                </div>
-            </div>
-
-            <div class="pillar-card" id="turismo">
-                <div class="pillar-img" style="background-image: url('https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=600&q=80');"></div>
-                <div class="pillar-content">
-                    <h3>Turismo Luxury</h3>
-                    <p>Escursioni esclusive a bordo di un motoryacht da 18 metri per un massimo di 12 ospiti. Integrazione di tasting comparativi a bordo, cucina gourmet con chef privato e tour delle Isole Tremiti.</p>
-                    <a href="#" class="pillar-link">Prenota l'Esperienza &rarr;</a>
-                </div>
-            </div>
-
-            <div class="pillar-card" id="mitilicoltura">
-                <div class="pillar-img" style="background-image: url('https://images.unsplash.com/photo-1551248429-4043babc4347?auto=format&fit=crop&w=600&q=80');"></div>
-                <div class="pillar-content">
-                    <h3>Base Business Mitilicoltura</h3>
-                    <p>Una solida infrastruttura produttiva consolidata da 1.800 tonnellate l'anno che assicura stabilità di cash flow e funge da incubatore perfetto per le innovazioni sottomarine.</p>
-                    <a href="#" class="pillar-link">La Nostra Produzione &rarr;</a>
-                </div>
-            </div>
-
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand"><span class="text-gold"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2l1.8 7.2L21 11l-7.2 1.8L12 20l-1.8-7.2L3 11l7.2-1.8z"/></svg></span><span class="brand-name">Cassiopea</span></a>
+    <div class="nav-links">
+      <a href="cantina.html">Cantina</a>
+      <a href="esperienza.html">Esperienza</a>
+      <a href="mare.html">Mare</a>
+      <a href="progetto.html">Progetto</a>
+      <a href="contatti.html">Contatti</a>
+    </div>
+    <a href="contatti.html" class="cta">Prenota</a>
+  </div>
+</nav>
+<section class="hero" id="top">
+  <img src="assets/hero-underwater.jpg" alt="Bottiglie affinate sui fondali dell'Adriatico" />
+  <div class="hero-overlay"></div>
+  <div class="container hero-content fade-up">
+    <div class="hero-meta"><span class="bar"></span>Termoli · Adriatico · 18m</div>
+    <h1 class="display">Il mare<br><em>custodisce</em><br>il tempo.</h1>
+    <p>La prima cantina di affinamento subacqueo dell'Adriatico centrale. Seimila bottiglie di vino e tremila di olio extravergine riposano nel silenzio degli abissi, dove la pressione costante e la temperatura immutabile scolpiscono profili sensoriali irripetibili.</p>
+    <div class="hero-actions">
+      <a href="esperienza.html" class="btn btn-gold">Vivi l'esperienza</a>
+      <a href="cantina.html" class="btn btn-outline">Scopri la cantina</a>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container">
+    <div class="grid grid-12" style="align-items:start">
+      <div class="col-4">
+        <div class="eyebrow">Manifesto</div>
+        <div class="hairline" style="width:6rem;margin-top:1.5rem"></div>
+      </div>
+      <div class="col-8">
+        <p class="font-display" style="font-size:clamp(1.75rem,4vw,3rem);line-height:1.15">
+          Tre mondi, un'unica narrazione: la <em>maricoltura</em> che nutre, la <em>cantina</em> che affina, l'<em>imbarcazione</em> che racconta.
+        </p>
+        <p style="margin-top:2rem;color:var(--muted);max-width:42rem">
+          Cassiopea nasce da una concessione marittima storica al largo di Termoli, dove millesettecento tonnellate di mitili crescono ogni anno. Tra le linee di allevamento, a diciotto metri di profondità, abbiamo costruito una cattedrale sommersa. Un luogo dove il tempo si misura in correnti.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="gradient-deep" id="cantina">
+  <div class="container">
+    <div class="grid grid-2" style="align-items:center;gap:4rem">
+      <div class="relative">
+        <img src="assets/bottle.jpg" alt="Bottiglia affinata in mare" class="img-tall" />
+        <div class="badge-gold"><div class="k">9.000</div><div class="v">Bottiglie sommerse</div></div>
+      </div>
+      <div>
+        <div class="eyebrow">La Cantina Sommersa</div>
+        <h2 class="display">Diciotto metri sotto la superficie del tempo.</h2>
+        <p style="margin-top:2rem;color:var(--muted)">
+          Strutture in CLS sovradimensionate, certificate inerti, ospitano le nostre selezioni in un microclima costante: 14°C, pressione di due bar, oscurità assoluta, micro-vibrazioni indotte dalle correnti. Il risultato è un affinamento che la terraferma non può replicare.
+        </p>
+        <div class="stat-grid">
+          <div class="stat"><div class="k">14°C</div><div class="v">Temperatura costante</div></div><div class="stat"><div class="k">2 bar</div><div class="v">Pressione marina</div></div><div class="stat"><div class="k">100%</div><div class="v">Oscurità</div></div><div class="stat"><div class="k">+80%</div><div class="v">Premium pricing</div></div>
         </div>
-    </section>
-
-    <section class="info-block">
-        <div class="info-box">
-            <h2>Sostenibilità d'Avanguardia ed Effetto Reef</h2>
-            <p>Il nostro approccio non si limita a preservare l'ambiente: lo rigenera. Le nostre strutture di contenimento sottomarino in calcestruzzo inerte si trasformano in veri e propri reef artificiali, incrementando attivamente la biodiversità marina dell'Adriatico. Il progetto opera in totale trasparenza e in conformità con i più rigorosi standard ESG.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="esperienza">
+  <div class="container">
+    <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1.5rem;margin-bottom:4rem">
+      <div>
+        <div class="eyebrow">Cassiopea Yacht — 18m</div>
+        <h2 class="display" style="max-width:36rem">Una giornata <em>scolpita</em> dal mare.</h2>
+      </div>
+      <p style="max-width:28rem;color:var(--muted)">Dodici ospiti. Un capitano, uno chef stellato, un sommelier subacqueo. Sei ore di navigazione tra concessione, cantina e Isole Tremiti.</p>
+    </div>
+    <div class="relative">
+      <img src="assets/yacht.jpg" alt="Yacht Cassiopea al tramonto" class="img-wide" />
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n">01</div><div class="t">Imbarco</div><p>Porto storico di Termoli, all'alba. Brioche e prosecco di benvenuto.</p></div><div class="step"><div class="n">02</div><div class="t">Concessione</div><p>Visita guidata all'impianto di mitilicoltura. Degustazione fresca.</p></div><div class="step"><div class="n">03</div><div class="t">Immersione</div><p>Recupero a vista delle bottiglie. Apertura cerimoniale a bordo.</p></div><div class="step"><div class="n">04</div><div class="t">Tremiti</div><p>Ancoraggio a San Domino. Pranzo gourmet di sette portate.</p></div>
+    </div>
+  </div>
+</section>
+<section id="mare">
+  <div class="container">
+    <div class="grid" style="grid-template-columns:1fr;gap:3rem">
+      <div style="display:grid;grid-template-columns:1fr;gap:3rem">
+        <div>
+          <div class="eyebrow">Maricoltura</div>
+          <h2 class="display">La base di tutto: <em>il mitilo nero</em> dell'Adriatico.</h2>
+          <p style="margin-top:1.5rem;color:var(--muted);max-width:42rem">
+            Un consorzio storico, millesettecento tonnellate l'anno, certificazione Friend of the Sea. È la radice viva del progetto Cassiopea: economia circolare, biodiversità, territorio.
+          </p>
         </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 Progetto Cassiopea - Cantina Sommersa Adriatico. Documento riservato e confidenziale.</p>
-        <p style="margin-top: 10px; font-size: 12px;">Termoli (CB), Italia | In collaborazione con il Dipartimento di Scienze Marine.</p>
-    </footer>
-
-</body>
-</html>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem">
+          <img src="assets/mussels.jpg" alt="Mitili dell'Adriatico" class="img-half" />
+          <img src="assets/termoli.jpg" alt="Termoli al tramonto" class="img-half" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="bg-deep" id="progetto">
+  <div class="container">
+    <div class="grid grid-12" style="margin-bottom:4rem">
+      <div class="col-5">
+        <div class="eyebrow">Il Progetto</div>
+        <h2 class="display">Un investimento <em>irripetibile</em>.</h2>
+      </div>
+      <p class="col-7" style="color:var(--muted);font-size:1.1rem;padding-top:1.5rem">
+        Nessuna cantina sommersa entro quattrocento chilometri. Barriere d'ingresso altissime — concessioni demaniali, autorizzazioni, know-how subacqueo. Un moat competitivo difficilmente replicabile, costruito sul mare.
+      </p>
+    </div>
+    <div class="border-t">
+      <div class="table-row head"><div>Anno</div><div>Fatturato</div><div>EBITDA</div><div style="text-align:right">Margine</div></div>
+      <div class="table-row"><div class="y">Anno 1</div><div class="v gold">€1.58M</div><div class="v">€280K</div><div class="v right">18%</div></div><div class="table-row"><div class="y">Anno 3</div><div class="v gold">€2.30M</div><div class="v">€690K</div><div class="v right">30%</div></div><div class="table-row"><div class="y">Anno 5</div><div class="v gold">€2.54M</div><div class="v">€780K</div><div class="v right">31%</div></div><div class="table-row"><div class="y">Anno 10</div><div class="v gold">€2.78M</div><div class="v">€920K</div><div class="v right">33%</div></div>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi"><div class="k">19,5%</div><div class="v">IRR a 10 anni</div></div><div class="kpi"><div class="k">3–4 anni</div><div class="v">Payback period</div></div><div class="kpi"><div class="k">6–8×</div><div class="v">EBITDA multiple exit</div></div>
+    </div>
+  </div>
+</section>
+<section id="contatti">
+  <div class="container" style="max-width:64rem;text-align:center">
+    <div class="center-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2l1.8 7.2L21 11l-7.2 1.8L12 20l-1.8-7.2L3 11l7.2-1.8z"/></svg></div>
+    <h2 class="display">Per pochi.<br><em>Per sempre.</em></h2>
+    <p style="margin-top:2rem;color:var(--muted);max-width:32rem;margin-left:auto;margin-right:auto">
+      Investitori istituzionali, distributori premium, ospiti privati. Scriveteci per ricevere il dossier completo o per riservare la prossima navigazione.
+    </p>
+    <form class="contact-form" onsubmit="event.preventDefault();alert('Grazie. Vi ricontatteremo a breve.')">
+      <input type="email" required placeholder="La vostra email" />
+      <button type="submit" class="btn btn-gold">Richiedi accesso</button>
+    </form>
+    <div class="contact-info">
+      <div><div class="label">Sede</div>Porto di Termoli, Molise</div>
+      <div><div class="label">Email</div>ospiti@cassiopea-adriatico.it</div>
+      <div><div class="label">Stagione</div>Aprile — Ottobre</div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="container footer-inner">
+    <div class="brand">
+      <span class="text-gold"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2l1.8 7.2L21 11l-7.2 1.8L12 20l-1.8-7.2L3 11l7.2-1.8z"/></svg></span>
+      <span class="brand-name" style="font-size:1.125rem">Cassiopea</span>
+      <span style="opacity:.6">— Adriatico, MMXXVI</span>
+    </div>
+    <div class="tracking-luxury uppercase">Friend of the Sea · Dolphin Safe</div>
+  </div>
+</footer>
+</body></html>
